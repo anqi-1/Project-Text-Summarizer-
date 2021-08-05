@@ -28,11 +28,13 @@
       
             <h4>Extractive Summarization of Text: </h4>
 		<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; height:250px">
-					{% for sentence in output_summary1 %}
-		<p>{{ output_summary1 }} </p>
-		<p>{{ original_text }}</p>    
+			{% for sentence in output_summary1 %}
+			<p>{{ output_summary1 }} </p>
+			<!-- {% endfor %} -->
 		</textbox>
 		<br> 
+		<h4>Original Text:</h4>
+		<p>{{ original_text }}</p>    
         </form>
       </div>
     
