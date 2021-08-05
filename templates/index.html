@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Text Summarizer</title>
+  </head>
+  <body>
+      <div class="container">
+        <h1>Text Summarizer</h1>
+        <h5>This text summarizer includes two types of summarizer, extractive and abstractive.
+            The extractive summarizer that I have built myself extracts the 2 most important sentences from a body of text. Sentences with words that occur most often in a text is considered important.
+            The abstractive summarizer is implemented with Google’s state-of-the-art PEGASUS transformer model, which is currently the best model for text summarization. </h5>
+      </div>
+    
+
+    
+      <div class="container">
+        <form action = "/summary" method = "POST">
+            <p>Enter the text you wish to summarize:</p>
+            <textarea name = input_text class="form-control" id="input_text" rows="6" cols="30" required="required" value = "{{request.form['input_text']}}" ></textarea>
+            <input type="submit"  class="btn btn-success btn-md" value="Submit">
+
+        <!--<label for="exampleFormControlTextarea1" class="form-label">Enter your text here for Extractive Summarization:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <form action="{{ url_for('extractive_summary') }}"method="post">
+            <textarea name = "input_text" id = "input_text" rows="6" cols="30" required="required" 
+                                 value = "{{request.form['input_text']}}" id="ip4"></textarea>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button> -->
+
+            <!-- <h2> Extractive summary</h2> -->
+				<h4>Extractive Summarization of Text: </h4>
+				<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; 
+				height:250px">
+					{% for sentence in output_summary1 %}
+					<p>{{ output_summary1 }} </p>
+					<!-- {% endfor %} -->
+				</textbox>
+				<br>
+            <!-- <h2> Abstractive summary</h2> -->
+				<h4>Abstractive Summarization of Text: </h4>
+				<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; 
+				height:250px">
+					{% for sentence in output_summary2 %}
+					<p>{{ output_summary2 }} </p>
+					<!-- {% endfor %} -->
+				</textbox>
+				<br>
+				<h4>Original Text:</h4>
+				<p>{{ original_text }}</p>    
+        </form>
+      </div>
+    
+  </body>
+</html>
