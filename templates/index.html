@@ -27,17 +27,13 @@
             <input type="submit"  class="btn btn-success btn-md" value="Submit">
 
       
-            <!-- <h2> Abstractive summary</h2> -->
-				<h4>Abstractive Summarization of Text: </h4>
-				<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; 
-				height:250px">
-					{% for sentence in output_summary2 %}
-					<p>{{ output_summary2 }} </p>
+            <h4>Extractive Summarization of Text: </h4>
+		<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; height:250px">
+					{% for sentence in output_summary1 %}
+		<p>{{ output_summary1 }} </p>
 					<!-- {% endfor %} -->
-				</textbox>
-				<br>
-				<h4>Original Text:</h4>
-				<p>{{ original_text }}</p>    
+		</textbox>
+		<br> 
         </form>
       </div>
     
