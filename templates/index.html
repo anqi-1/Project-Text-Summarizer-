@@ -10,6 +10,13 @@
 
     <title>Text Summarizer</title>
   </head>
+	
+  <style>  
+    div {  
+        padding: 15px 30px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }  
+  </style>  
   <body>
       <div class="container">
         <h1>Text Summarizer</h1>
@@ -17,15 +24,15 @@
             The extractive summarizer that I have built myself extracts the 2 most important sentences from a body of text. Sentences with words that occur most often in a text is considered important.
       </div>
     
-
+	<hr>
     
       <div class="container">
         <form action = "/summary" method = "POST">
             <p>Enter the text you wish to summarize:</p>
             <textarea name = input_text class="form-control" id="input_text" rows="6" cols="30" required="required" value = "{{request.form['input_text']}}" ></textarea>
-            <input type="submit"  class="btn btn-success btn-md" value="Submit">
+            <input type="submit"  class="btn btn-primary" value="Submit">
 
-      
+      	<hr>
             <h4>Extractive Summarization of Text: </h4>
 		<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; height:250px">
 			{% for sentence in output_summary1 %}
@@ -33,6 +40,7 @@
 			<!-- {% endfor %} -->
 		</textbox>
 		<br> 
+		<hr>
 		<h4>Original Text:</h4>
 		<p>{{ original_text }}</p>    
         </form>
