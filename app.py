@@ -1,7 +1,6 @@
 from transformers import pipeline
 import re
 from flask import Flask, render_template, request, jsonify
-import pickle
 import nltk
 import numpy as np
 from nltk import tokenize
@@ -9,9 +8,6 @@ nltk.download('punkt')
 
 
 app = Flask(__name__)
-
-# load model
-#model = pickle.load(open('forest_taxi1.pkl', 'rb'))
 
 
 def generate_abstractiveSummary(text):
@@ -72,7 +68,12 @@ def generate_extractiveSummary(text):
 
 @app.route("/")
 def home():
+    def generate():
+        for i in range(10):
+            yield "<br/>"   # notice that we are yielding something as soon as possible
+
     return render_template('index.html')
+
 
 
 @app.route('/summary', methods=['POST'])
