@@ -1,5 +1,5 @@
 gunicorn==20.1.0
-PyTorch==1.8.1
+PyTorch==1.0.2
 transformers==4.6.0
 nltk==3.5
 Flask==1.1.2
