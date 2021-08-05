@@ -26,22 +26,7 @@
             <textarea name = input_text class="form-control" id="input_text" rows="6" cols="30" required="required" value = "{{request.form['input_text']}}" ></textarea>
             <input type="submit"  class="btn btn-success btn-md" value="Submit">
 
-        <!--<label for="exampleFormControlTextarea1" class="form-label">Enter your text here for Extractive Summarization:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        <form action="{{ url_for('extractive_summary') }}"method="post">
-            <textarea name = "input_text" id = "input_text" rows="6" cols="30" required="required" 
-                                 value = "{{request.form['input_text']}}" id="ip4"></textarea>
-            <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button> -->
-
-            <!-- <h2> Extractive summary</h2> -->
-				<h4>Extractive Summarization of Text: </h4>
-				<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; 
-				height:250px">
-					{% for sentence in output_summary1 %}
-					<p>{{ output_summary1 }} </p>
-					<!-- {% endfor %} -->
-				</textbox>
-				<br>
+      
             <!-- <h2> Abstractive summary</h2> -->
 				<h4>Abstractive Summarization of Text: </h4>
 				<textbox name="output_text" id="output_text" maxlength="500000" style="width:900px; 
