@@ -1,6 +1,6 @@
 from transformers import pipeline
 import re
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, requests
 import nltk
 import numpy as np
 from nltk import tokenize
@@ -29,6 +29,10 @@ def generate_abstractiveSummary(text):
 
 @app.route("/")
 def home():
+    def streamed_proxy():
+        r = requests.get(my_path_to_server01, stream=True)
+        return Response(r.iter_content(chunk_size=10*1024),
+                    content_type=r.headers['Content-Type'])
     return render_template('index.html')
 
 
