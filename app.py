@@ -1,4 +1,3 @@
-from transformers import pipeline
 import re
 from flask import Flask, render_template, request
 import nltk
